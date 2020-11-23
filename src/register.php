@@ -32,13 +32,14 @@
 
   <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
     <ul class="navbar-nav">
-      <li class="nav-item <?php// if($_SERVER['SCRIPT_NAME'])?>active">
-        <a class="nav-link" href="./index.php">Home<span class="sr-only">(current)</span></a>
+      <li class="nav-item">
+        <a class="nav-link" href="./index.php">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="./about.php">About us</a>
+
       </li>
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="./register.php">Sign Up</a>
       </li>
       <li class="nav-item">
@@ -49,11 +50,61 @@
 </nav>
 
 <main role="main" class="container">
-  <div class="jumbotron">
-    <h1>Marketplace</h1>
-    <p class="lead">Gwampate Sau, Vieh mit Haxn, Giftschbridzn, Knedlfressa, Ecknsteha, Schuibuamtratza, Sautreiba, Schwammal, Freibialädschn, Hämmoridenpritschn, Hausdracha, Bauantrampl, Schdehlratz, klebrigs Biaschal, Geizgroogn, Mistviach, Luada, Herrgoddsacklzementfixlujja, Saggrament, kropfata Hamml, Plotschn, du Ams’l, du bleede, gscherta Hamml, Besnbinda, Scheißbürschdl, Voiksdepp, Katzlmacha, krummhaxata Goaßbog, junga Hubbfa, Kittlschliaffa, ja, wo samma denn, i werd da zoagn, wo da Bartl an Most hoid, hoid dei Babbn, Schdeckalfisch, oida Daddara, Beißn, oide Schäwan, Kittlschliaffa, oide Rudschn, Wurznsepp, Schuggsn, Kasberl, i-Düpferl-Reita, Hopfastanga, Bauantrampl, Ratschkathl, Krautara, Eignbrödla, Erzdepp, Freindal!</p>
-    <a class="btn btn-lg btn-primary" href="#" role="button">More Information &raquo;</a>
-  </div>
+  <div class=".container-sm">   
+	
+	<form class="form-horizontal" action='' method="POST">
+  <fieldset>
+    <div id="legend">
+      <legend class="">Register</legend>
+    </div>
+    <div class="control-group">
+      <!-- Username -->
+      <label class="control-label"  for="username">Username</label>
+      <div class="controls">
+        <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
+        <p class="help-block">Username can contain any letters or numbers, without spaces</p>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <!-- E-mail -->
+      <label class="control-label" for="email">E-mail</label>
+      <div class="controls">
+        <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
+        <p class="help-block">Please provide your E-mail</p>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <!-- Password-->
+      <label class="control-label" for="password">Password</label>
+      <div class="controls">
+        <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
+        <p class="help-block">Password should be at least 4 characters</p>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <!-- Password -->
+      <label class="control-label"  for="password_confirm">Password (Confirm)</label>
+      <div class="controls">
+        <input type="password" id="password_confirm" name="password_confirm" placeholder="" class="input-xlarge">
+        <p class="help-block">Please confirm password</p>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <!-- Button -->
+      <div class="controls">
+        <button class="btn btn-success">Register</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+	
+	
+	
+	</div>
 </main>
 <footer class="footer">
  <div class="footer-copyright text-center py-3">© 2020 Copyright:
