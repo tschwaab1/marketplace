@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
-    <title>Fixed top navbar example · Bootstrap</title>
+    <title>Register</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/navbar-fixed/">
 
@@ -25,29 +25,12 @@
   </head>
   <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<?php
+//Add Menu
+require_once('./assets/layout/navbar.php')
 
-  <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="./index.php">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="./about.php">About us</a>
 
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="./register.php">Sign Up</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" onclick="document.getElementById('id01').style.display='block'">Login</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+ ?>
 
 <main role="main" class="container">
   <div class=".container-sm">   
@@ -58,6 +41,22 @@
       <legend class="">Register</legend>
     </div>
     <div class="control-group">
+      <!-- Username -->
+      <label class="control-label"  for="fname">First Name</label>
+      <div class="controls">
+        <input type="text" id="fname" name="fname" placeholder="" class="input-xlarge">
+        <p class="help-block">fname can contain any letters or numbers, without spaces</p>
+      </div>
+    </div>   
+	<div class="control-group">
+      <!-- Username -->
+      <label class="control-label"  for="lname">Last Name</label>
+      <div class="controls">
+        <input type="text" id="lname" name="lname" placeholder="" class="input-xlarge">
+        <p class="help-block">lname can contain any letters or numbers, without spaces</p>
+      </div>
+    </div>   
+	<div class="control-group">
       <!-- Username -->
       <label class="control-label"  for="username">Username</label>
       <div class="controls">
@@ -115,39 +114,10 @@
 
 </footer>
 </body>
-
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-      
-	  
-	  <div id="id01" class="modal">
-  
-  <!--------Dingens HTML for Login Popup form--------->
-  
-  
-  <form class="modal-content animate" action="./login.php" method="post">
- 
-
-    <div class="container">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
-
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-        
-      <button type="submit">Login</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
-    </div>
-
-    <div class="container" style="background-color:#727273">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
-    </div>
-  </form> 
-</div>
-
+<?php 
+//Add Div for Login Popup on every page
+require_once('./assets/layout/login_popup.php');
+?>
 
 
 <script>
@@ -161,5 +131,6 @@ window.onclick = function(event) {
     }
 }
 window.jQuery || document.write('<script src="./assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
 </html>
