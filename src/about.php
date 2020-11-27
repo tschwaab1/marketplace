@@ -37,21 +37,21 @@ require_once('./assets/layout/navbar.php')
     <a class="btn btn-lg btn-primary" href="#" role="button"> &raquo;</a>
   </div>
 </main>
-<footer class="footer">
- <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="#"> SySec Group 02</a>
-  </div>
 
 
 
-</footer>
-</body>
 
-	  
-<?php 
+
+
+<?php
+
+//include footer
+require_once('./assets/layout/footer.php');
+
 //Add Div for Login Popup on every page
 require_once('./assets/layout/login_popup.php');
 ?>
+
 
 
 <script>

@@ -98,23 +98,19 @@ require_once('./assets/layout/navbar.php')
         <button class="btn btn-success">Register</button>
       </div>
     </div>
-  </fieldset>
-</form>
-	
-	
-	
-	</div>
+   </fieldset>
+  </form>
+</div>
 </main>
-<footer class="footer">
- <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="#"> SySec Group 02</a>
-  </div>
 
 
 
-</footer>
-</body>
-<?php 
+
+<?php
+
+//include footer
+require_once('./assets/layout/footer.php');
+
 //Add Div for Login Popup on every page
 require_once('./assets/layout/login_popup.php');
 ?>
