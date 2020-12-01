@@ -1,5 +1,65 @@
 <?php 
+$servername = "localhost";
+$database = "marketplace";
+$username = "root";
+$password = "";
 
+$con = mysqli_connect($servername, $username , $password, $database) or die("Database not connected");
+
+if (isset($_POST['create'])) {
+  // receive all input values from the form
+  $firstname =        trim($_POST['firstname']);
+  $lastname =         trim($_POST['lastname']);
+  $username =         trim($_POST['username']);
+  $password =         trim($_POST['password']);
+  $password_confirm = trim($_POST['password_confirm']); 
+  $email =            trim($_POST['email']);
+  $ip = $_SERVER['REMOTE_ADDR'];
+  $regDa= date('Ymdhis');
+  $errors = array(); 
+
+
+  if (empty($firstname)) { array_push($errors, "Firstname is required"); }
+  if (empty($lastname)) { array_push($errors, "Lastname is required"); }
+  if (empty($username)) { array_push($errors, "Username is required"); }
+  if (strlen($username) < 4 ) { array_push($errors, "Username should have at least four characters"); }
+  if (empty($email)) { array_push($errors, "Email is required"); }
+  if (empty($password)) { array_push($errors, "Password is required"); }
+  if (strlen($password) < 4 ) { array_push($errors, "Password should have at least four characters"); }
+  if ($password != $password_confirm) {
+	array_push($errors, "The two passwords do not match");
+  }
+
+  // first check the database to make sure 
+  // a user does not already exist with the same username and/or email
+  $user_check_query = "SELECT * FROM user WHERE username='$username' LIMIT 1";
+  $result = mysqli_query($con, $user_check_query);
+  $user = mysqli_fetch_assoc($result);
+  
+  if ($user) { // if user exists
+    if ($user['username'] === $username) {
+      array_push($errors, "Username already exists");
+    }
+  }
+
+    if (count($errors) == 0) {
+    $query = "INSERT INTO user (id, firstName, lastName, username, password, email, ip, regDate)
+    VALUES (NULL, '$firstname', '$lastname', '$username', '".md5($password)."', '$email' , '$ip', '$regDa')";
+    
+
+    if ($con->query($query) === TRUE) {
+      echo "New record created successfully";
+      header("location: index.php");
+    } else {
+      echo "Error: " . $query . "<br>" . $con->error;
+    }
+    
+    $con->close();
+  } else {
+    echo print_r($errors);
+  }
+    
+}
 
 
 ?>

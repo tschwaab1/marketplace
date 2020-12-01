@@ -32,7 +32,7 @@ CREATE TABLE `comment` (
   `text` text NOT NULL,
   `userid` int(5) NOT NULL,
   `offerid` int(5) NOT NULL,
-  `timestamp` int(11) NOT NULL
+  `timestamp` bigint(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
