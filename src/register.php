@@ -1,15 +1,11 @@
 <?php 
-$servername = "localhost";
-$database = "marketplace";
-$username = "root";
-$password = "";
 
-$con = mysqli_connect($servername, $username , $password, $database) or die("Database not connected");
-
-if (isset($_POST['create'])) {
+require_once "./includes/config.php";
+ 
+if (isset($_POST['email'])) {
   // receive all input values from the form
-  $firstname =        trim($_POST['firstname']);
-  $lastname =         trim($_POST['lastname']);
+  $firstname =        trim($_POST['fname']);
+  $lastname =         trim($_POST['lname']);
   $username =         trim($_POST['username']);
   $password =         trim($_POST['password']);
   $password_confirm = trim($_POST['password_confirm']); 
@@ -33,7 +29,7 @@ if (isset($_POST['create'])) {
   // first check the database to make sure 
   // a user does not already exist with the same username and/or email
   $user_check_query = "SELECT * FROM user WHERE username='$username' LIMIT 1";
-  $result = mysqli_query($con, $user_check_query);
+  $result = mysqli_query($link, $user_check_query);
   $user = mysqli_fetch_assoc($result);
   
   if ($user) { // if user exists
@@ -47,14 +43,14 @@ if (isset($_POST['create'])) {
     VALUES (NULL, '$firstname', '$lastname', '$username', '".md5($password)."', '$email' , '$ip', '$regDa')";
     
 
-    if ($con->query($query) === TRUE) {
+    if ($link->query($query) === TRUE) {
       echo "New record created successfully";
-      header("location: index.php");
+      //header("location: index.php");
     } else {
-      echo "Error: " . $query . "<br>" . $con->error;
+      echo "Error: " . $query . "<br>" . $link->error;
     }
     
-    $con->close();
+    $link->close();
   } else {
     echo print_r($errors);
   }
@@ -95,7 +91,7 @@ require_once('./assets/layout/navbar.php')
 <main role="main" class="container">
   <div class=".container-sm">   
 	
-	<form class="form-horizontal" action='' method="POST">
+	<form class="form-horizontal" action='./register.php' method="POST">
   <fieldset>
     <div id="legend">
       <legend class="">Register</legend>

@@ -41,7 +41,7 @@ require_once('./assets/layout/navbar_inside.php')
 <main role="main" class="container">
   <div class="jumbotron">
     <h1>Home</h1>
-    <p class="lead">Your Username is: <?php echo $_SESSION['username']; ?></p>
+    <p class="lead">Your Username is: <?php echo $_SESSION['username']; ?> <br> print $_SESSION: <?php echo var_dump($_SESSION);?></p>
     <a class="btn btn-lg btn-primary" href="#" role="button">More Information &raquo;</a>
   </div>
 </main>
