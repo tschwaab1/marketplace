@@ -3,7 +3,7 @@ session_start();
  
 // Check if the user is already logged in
 if(isset($_SESSION["isin"]) && $_SESSION["isin"] === true){
-    header("location: welcome.php");
+    header("location: home.php");
     exit;
 }
  

@@ -45,7 +45,7 @@ if (isset($_POST['email'])) {
 
     if ($link->query($query) === TRUE) {
       echo "New record created successfully";
-      //header("location: index.php");
+      header("location: index.php");
     } else {
       echo "Error: " . $query . "<br>" . $link->error;
     }
