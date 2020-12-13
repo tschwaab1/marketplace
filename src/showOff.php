@@ -17,19 +17,19 @@ require_once('./includes/config.php');
 }
 //Param should now me numeric
 
-$stmt = $link->prepare("SELECT id, title, descr, userid, price FROM `offer` WHERE id=?");
+		$stmt = $link->prepare("SELECT id, title, descr, userid, price FROM `offer` WHERE id=?");
 
-$stmt->bind_param("i", $_GET['id']);
+		$stmt->bind_param("i", $_GET['id']);
 
-$sql = "SELECT id, title, descr, userid, price FROM `offer`;";
+		$sql = "SELECT id, title, descr, userid, price FROM `offer`;";
 
-$result = mysqli_query($link, $sql);
+		$result = mysqli_query($link, $sql);
 
-$stmt->execute();
+		$stmt->execute();
 
-$result = $stmt->get_result();
+		$result = $stmt->get_result();
 
-$row = $result->fetch_assoc();
+		$row = $result->fetch_assoc();
 
 //var_dump($row);
 
@@ -45,8 +45,6 @@ $row = $result->fetch_assoc();
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
     <title>Home</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/navbar-fixed/">
 
     <!-- Bootstrap core CSS -->
 <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">

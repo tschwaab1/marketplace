@@ -35,6 +35,8 @@ $result = mysqli_query($link, $sql);
 
     <!-- Bootstrap core CSS -->
 <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
     <!-- Custom styles for this template -->
     <link href="./assets/ccss/navbar-top-fixed.css" rel="stylesheet">
