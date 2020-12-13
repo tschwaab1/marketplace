@@ -115,7 +115,28 @@ require_once('./assets/layout/navbar_inside.php')
   </tbody>
 </table>
 <a class="btn btn-lg btn-primary" href="#" role="button">Contact Seller &raquo;</a>
+
+</div>
+<div class="jumbotron">  
+  <br><br>
+
+    <h4>Comments:</h4>
+	
+	<form method="POST" action="./comment.php?action=add">
+	 <table class="table table-borderless">
+
+		<tbody>
+			<tr>
+				<td><textarea name="comment" rows="4" cols="50"></textarea></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	 <br><br>
+		<input type="submit" value="Submit">
+		</form>
   </div>
+  
 </main>
 
 <?php
