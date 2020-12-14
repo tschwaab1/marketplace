@@ -65,7 +65,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         } else{
                             
                             $password_err = "The password you entered was not valid.";
-                        echo "<script> alert('".$password_err."');</script>";
+							echo "<script> alert('".$password_err."');</script>";
+							echo "<a href='./index.php'>Go back</a>";
 						
 						}
                     }
@@ -73,10 +74,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                     $username_err = "No account found with that username.";
 					echo "<script> alert('".$username_err."');</script>";
+							echo "<a href='./index.php'>Go back</a>";
                 }
             } else{
                 echo "<script> alert('Oops! Something went wrong. Please try again later');</script>";
-	
+							echo "<a href='./index.php'>Go back</a>";
             }
 
 
@@ -86,5 +88,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     // Close connection
     mysqli_close($link);
+}else{
+	echo "<script> alert('Oops! Something went wrong. Please try again later');</script>";
+							echo "<a href='./index.php'>Go back</a>";	
 }
 ?>
