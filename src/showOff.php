@@ -41,9 +41,6 @@ require_once('./includes/config.php');
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v4.1.1">
     <title>Home</title>
 
     <!-- Bootstrap core CSS -->
@@ -103,8 +100,7 @@ require_once('./assets/layout/navbar_inside.php')
 
 ?>
 
-
-  </tbody>
+ </tbody>
 </table>
 <a class="btn btn-lg btn-primary" href="#" role="button">Contact Seller &raquo;</a>
 
