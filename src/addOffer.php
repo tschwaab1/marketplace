@@ -37,9 +37,7 @@ require_once('./includes/config.php');
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v4.1.1">
+
     <title>Home</title>
 
     <!-- Bootstrap core CSS -->
@@ -72,11 +70,11 @@ require_once('./assets/layout/navbar_inside.php')
 		<td><input type="text" class="form-control" id="title" placeholder="Titel"></td>
 	</tr>
 		<tr>
-		<td>Preis:</td>
+		<td>Price:</td>
 		<td><input type="text" class="form-control" id="price" placeholder="1337 €"></td>
 	</tr>
 		<tr>
-		<td>Beschreibung:</td>
+		<td>Description:</td>
 		<td><textarea class="form-control" id="descr" rows="3"></textarea></td>
 	</tr>
 		<tr>
