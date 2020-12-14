@@ -83,7 +83,6 @@ require_once('./assets/layout/navbar_inside.php')
 <?php
 
     echo "
-	
 	<tr>
 		<td>Titel:</td>
 		<td>".$row['title']."</td>
@@ -99,12 +98,7 @@ require_once('./assets/layout/navbar_inside.php')
 		<tr>
 		<td>Price:</td>
 		<td>".$row['price']."</td>
-	</tr>
-
-
-	
-	
-	";
+	</tr>";
   
 
 ?>

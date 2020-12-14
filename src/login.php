@@ -65,14 +65,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         } else{
                             
                             $password_err = "The password you entered was not valid.";
-                        }
+                        echo "<script> alert('".$password_err."');</script>";
+						
+						}
                     }
                 } else{
 
                     $username_err = "No account found with that username.";
+					echo "<script> alert('".$username_err."');</script>";
                 }
             } else{
-                echo "Oops! Something went wrong. Please try again later.";
+                echo "<script> alert('Oops! Something went wrong. Please try again later');</script>";
+	
             }
 
 

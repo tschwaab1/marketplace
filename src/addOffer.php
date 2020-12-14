@@ -10,6 +10,11 @@ if(!isset($_SESSION["isin"]) || $_SESSION["isin"] !== true){
 
 require_once('./includes/config.php');
 
+if(isset($_GET['action']) AND $_GET['action'] == "add"){
+	
+	
+	
+}
 
 //Param should now me numeric
 /* 
