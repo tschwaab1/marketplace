@@ -40,7 +40,8 @@ require_once('./assets/layout/navbar_inside.php')
     <h1>Home</h1>
     <p class="lead">Welcome, <?php echo $_SESSION['username']; ?>! <br> 
 <!--        print $_SESSION: <?php echo var_dump($_SESSION);?></p>-->
-    <a class="btn btn-lg btn-primary" href="#" role="button">More Information &raquo;</a>
+    <a class="btn btn-lg btn-primary" href="./market.php" role="button">Go to Market &raquo;</a>
+
   </div>
 </main>
 

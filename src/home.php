@@ -39,7 +39,8 @@ require_once('./assets/layout/navbar_inside.php')
   <div class="jumbotron">
     <h1>Home</h1>
     <p class="lead">Welcome, <?php echo $_SESSION['username']; ?> ! </p>
-    <a class="btn btn-lg btn-primary" href="#" role="button">More Information &raquo;</a>
+    <a class="btn btn-lg btn-primary" href="./market.php" role="button">Go to Market &raquo;</a>
+
   </div>
 </main>
 
