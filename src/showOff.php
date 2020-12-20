@@ -18,7 +18,7 @@ require_once('./includes/config.php');
 //Param should now me numeric
 			//Select u.email from user u, offer o where  o.userid = u.id LIMIT 0,1;
 		//$stmt = $link->prepare("SELECT id, title, descr, userid, price FROM `offer` WHERE id=?");
-		$stmt= $link->prepare("Select o.id, o.title, o.descr, o.userid, o.price, u.email from user u, offer o where o.id = ? AND o.userid = u.id LIMIT 0,1;");
+		$stmt= $link->prepare("Select o.id, o.title, o.descr, o.userid, o.price, u.email, u.username from user u, offer o where o.id = ? AND o.userid = u.id LIMIT 0,1;");
 		$stmt->bind_param("i", $_GET['id']);
 
 		$stmt->execute();
@@ -57,7 +57,7 @@ require_once('./assets/layout/navbar_inside.php')
 
 <main role="main" class="container">
   <div class="jumbotron">
-    <h1><?php echo $row['title'];?></h1>
+    <h1><?php echo htmlentities($row['title']);?></h1>
 
   
   <table class="table table-borderless">
@@ -78,15 +78,15 @@ require_once('./assets/layout/navbar_inside.php')
     echo "
 	<tr>
 		<td>Titel:</td>
-		<td>".$row['title']."</td>
+		<td>".htmlentities($row['title'])."</td>
 	</tr>
 		<tr>
 		<td>Description:</td>
-		<td>".$row['descr']."</td>
+		<td>".htmlentities($row['descr'])."</td>
 	</tr>
 		<tr>
 		<td>Seller</td>
-		<td>".$row['userid']."</td>
+		<td>".$row['username']."</td>
 	</tr>
 		<tr>
 		<td>Price:</td>
@@ -114,6 +114,8 @@ require_once('./assets/layout/navbar_inside.php')
 
 	$offerid = $_GET['id'];		
 
+	/**
+	
 	$query_fetch = mysqli_query($link,"SELECT * FROM comment WHERE offerid = $offerid");
 	
  	while($show = mysqli_fetch_array($query_fetch)){
@@ -124,6 +126,26 @@ require_once('./assets/layout/navbar_inside.php')
 		
 		 
  	} // while loop brace
+	*/
+	
+	
+	
+	//$stmt= $link->prepare("Select o.id, o.title, o.descr, o.userid, o.price, u.email from user u, offer o where o.id = ? AND o.userid = u.id LIMIT 0,1;");
+		// SELECT c.id, c.text, c.userid, c.offerid, c.timestamp, u.username
+	
+	//$stmt = $link->prepare("SELECT * FROM comment WHERE offerid = ?");
+	
+	$stmt = $link->prepare("SELECT comment.text as text, user.username as username, comment.timestamp as timestamp FROM comment JOIN user ON comment.userid=user.id WHERE comment.offerid = ?");
+	$stmt->bind_param('i', $offerid);
+	
+	$stmt->execute();
+	$result = $stmt->get_result();
+	
+	while ($show = $result->fetch_assoc()) {
+		
+		echo date('Y-m-d H:i:s',$show['timestamp'])." - by: ".$show["username"]."<br>".htmlentities($show['text'])."<hr/>";
+	}
+	
 ?>
 </div>
 
