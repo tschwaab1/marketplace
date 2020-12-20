@@ -67,3 +67,6 @@ Go to http://marketplace.schwaab.bayern/src for the safe and http://marketplace.
 
 Note: We set up our online Version src & src_unsafe with two different databases ;-)
 
+## Contact
+
+If there are any doubts or questions please contact us at: thomas@schwaab.bayern
