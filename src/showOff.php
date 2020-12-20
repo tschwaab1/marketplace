@@ -16,9 +16,9 @@ require_once('./includes/config.php');
 
 }
 //Param should now me numeric
-
-		$stmt = $link->prepare("SELECT id, title, descr, userid, price FROM `offer` WHERE id=?");
-
+			//Select u.email from user u, offer o where  o.userid = u.id LIMIT 0,1;
+		//$stmt = $link->prepare("SELECT id, title, descr, userid, price FROM `offer` WHERE id=?");
+		$stmt= $link->prepare("Select o.id, o.title, o.descr, o.userid, o.price, u.email from user u, offer o where o.id = ? AND o.userid = u.id LIMIT 0,1;");
 		$stmt->bind_param("i", $_GET['id']);
 
 		$stmt->execute();
@@ -28,6 +28,7 @@ require_once('./includes/config.php');
 		$row = $result->fetch_assoc();
 
 //var_dump($row);
+
 
 ?>
 
@@ -97,7 +98,7 @@ require_once('./assets/layout/navbar_inside.php')
 
  </tbody>
 </table>
-<a class="btn btn-lg btn-primary" href="#" role="button">Contact Seller &raquo;</a>
+<a class="btn btn-lg btn-primary" href="mailto:<?php echo $row['email'];?>" role="button">Contact Seller &raquo;</a>
 
 </div>
 
