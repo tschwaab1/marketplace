@@ -21,10 +21,6 @@ require_once('./includes/config.php');
 
 		$stmt->bind_param("i", $_GET['id']);
 
-		$sql = "SELECT id, title, descr, userid, price FROM `offer`;";
-
-		$result = mysqli_query($link, $sql);
-
 		$stmt->execute();
 
 		$result = $stmt->get_result();
