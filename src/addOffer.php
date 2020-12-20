@@ -23,7 +23,7 @@ if(isset($_GET['action']) AND $_GET['action'] == "add"){
 	
 	if($stmt->execute()){
 			
-			echo "<div class='alert alert-success' role='alert'>You have added ".$title." to our market!</div>";
+			echo "<div class='alert alert-success' role='alert'>You have added ".htmlentities($title)." to our market!</div>";
 			
 	} else {
 		
