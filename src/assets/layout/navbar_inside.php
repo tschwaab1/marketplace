@@ -15,11 +15,7 @@
 		<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="./addOffer.php">Add</a>
           <a class="dropdown-item" href="./market.php">View All</a>
-          <a class="dropdown-item" href="#">else here</a>
         </div>
-      </li>
-      <li class="nav-item <?php echo (basename($_SERVER['SCRIPT_NAME']) == 'settings.php') ? 'active' : '';?>">
-        <a class="nav-link" href="./settings.php">Settings</a>
       </li>
 	  <li class="nav-item <?php echo (basename($_SERVER['SCRIPT_NAME']) == 'logout.php') ? 'active' : '';?>">
         <a class="nav-link" href="./logout.php">Logout</a>
