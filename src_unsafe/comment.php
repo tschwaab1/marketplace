@@ -16,15 +16,15 @@ if(isset($_GET['action']) && $_GET['action'] == "add"){
     $comment = $_POST['comment'];
     $time = time();
 
+																																		//abcd'); DROP TABLE peter;#
+    $insert = "INSERT INTO comment (id, userid, offerid, timestamp, text) VALUES (NULL, ".$userid.", ".$offerid.", ".$time.", '".$comment."'); ";
 
-    $insert = "INSERT INTO `comment` (`id`, `text`, `userid`, `offerid`, `timestamp`) VALUES (NULL, '$comment', '$userid', '$offerid', '$time')";
-     
-    if ($link->query($insert) === TRUE) {
+    if ($link->multi_query($insert) === TRUE) {
         header("location: market.php");
       } else {
         echo "Error: " . $insert . "<br>" . $link->error;
       }
-      
+
    
 }
 
