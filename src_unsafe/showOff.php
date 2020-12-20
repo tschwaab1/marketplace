@@ -10,22 +10,18 @@ if(!isset($_SESSION["isin"]) || $_SESSION["isin"] !== true){
 
 require_once('./includes/config.php');
 
-	if(!isset($_GET['id']) || !is_numeric($_GET['id'])){
-		
-		die("Error no offer selected! Or Invalid (no numeric) input parameter!");
 
-}
+		$sql = "Select o.id, o.title, o.descr, o.userid, o.price, u.email from user u, offer o where o.userid = u.id AND o.id = ".$_GET['id'];
+		$result = $link->query($sql);
 
-		$stmt= $link->prepare("Select o.id, o.title, o.descr, o.userid, o.price, u.email from user u, offer o where o.id = ? AND o.userid = u.id LIMIT 0,1;");
-		$stmt->bind_param("i", $_GET['id']);
-
-		$stmt->execute();
-
-		$result = $stmt->get_result();
-
+		if(!$result){
+			
+			
+			echo "Query is: ".$sql;
+			die("<br>Error<br>".mysqli_error($link));
+		}
+	
 		$row = $result->fetch_assoc();
-
-
 ?>
 
 <!doctype html>
