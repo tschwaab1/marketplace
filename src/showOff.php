@@ -119,7 +119,7 @@ require_once('./assets/layout/navbar_inside.php')
 
 		
 
-		echo "".$show['text']." <br>";
+		echo date('Y-m-d H:i:s',$show['timestamp'])." - by: ".$show["userid"]."<br>".$show['text']."<hr/>";
 		
 		 
  	} // while loop brace
