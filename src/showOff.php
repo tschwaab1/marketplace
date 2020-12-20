@@ -16,14 +16,10 @@ require_once('./includes/config.php');
 
 }
 //Param should now me numeric
-
-		$stmt = $link->prepare("SELECT id, title, descr, userid, price FROM `offer` WHERE id=?");
-
+			//Select u.email from user u, offer o where  o.userid = u.id LIMIT 0,1;
+		//$stmt = $link->prepare("SELECT id, title, descr, userid, price FROM `offer` WHERE id=?");
+		$stmt= $link->prepare("Select o.id, o.title, o.descr, o.userid, o.price, u.email from user u, offer o where o.id = ? AND o.userid = u.id LIMIT 0,1;");
 		$stmt->bind_param("i", $_GET['id']);
-
-		$sql = "SELECT id, title, descr, userid, price FROM `offer`;";
-
-		$result = mysqli_query($link, $sql);
 
 		$stmt->execute();
 
@@ -102,15 +98,41 @@ require_once('./assets/layout/navbar_inside.php')
 
  </tbody>
 </table>
-<a class="btn btn-lg btn-primary" href="#" role="button">Contact Seller &raquo;</a>
+<a class="btn btn-lg btn-primary" href="mailto:<?php echo $row['email'];?>" role="button">Contact Seller &raquo;</a>
 
 </div>
+
+<div class="jumbotron">
+<h4>Comments</h4>
+
+<table class="table table-borderless">
+  <thead>
+  </thead>
+  </table>
+
+  <?php
+
+	$offerid = $_GET['id'];		
+
+	$query_fetch = mysqli_query($link,"SELECT * FROM comment WHERE offerid = $offerid");
+	
+ 	while($show = mysqli_fetch_array($query_fetch)){
+
+		
+
+		echo date('Y-m-d H:i:s',$show['timestamp'])." - by: ".$show["userid"]."<br>".$show['text']."<hr/>";
+		
+		 
+ 	} // while loop brace
+?>
+</div>
+
 <div class="jumbotron">  
   <br><br>
 
     <h4>Comments:</h4>
 	
-	<form method="POST" action="./comment.php?action=add">
+	<form method="POST" action = "comment.php?action=add&offerid=<?php echo $row['id'];?>">
 	 <table class="table table-borderless">
 
 		<tbody>
@@ -121,7 +143,7 @@ require_once('./assets/layout/navbar_inside.php')
 	</table>
 	
 	 <br><br>
-		<input type="submit" value="Submit">
+	 	<input type="submit" value="Submit">
 		</form>
   </div>
   

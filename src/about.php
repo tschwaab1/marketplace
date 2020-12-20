@@ -1,6 +1,11 @@
 <?php 
 
+session_start();
 
+if(!isset($_SESSION["isin"]) || $_SESSION["isin"] !== true){
+    header("location: index.php");
+    exit;
+}
 
 ?>
 

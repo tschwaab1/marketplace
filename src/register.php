@@ -1,5 +1,11 @@
 <?php 
 
+// Check if the user is already logged in
+if(isset($_SESSION["isin"]) && $_SESSION["isin"] === true){
+    header("location: home.php");
+    exit;
+}
+
 require_once "./includes/config.php";
  
 if (isset($_POST['email'])) {
@@ -11,7 +17,7 @@ if (isset($_POST['email'])) {
   $password_confirm = trim($_POST['password_confirm']); 
   $email =            trim($_POST['email']);
   $ip = $_SERVER['REMOTE_ADDR'];
-  $regDa= date('Ymdhis');
+  $regDa= time();
   $errors = array(); 
 
 

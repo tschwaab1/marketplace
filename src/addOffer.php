@@ -12,28 +12,28 @@ require_once('./includes/config.php');
 
 if(isset($_GET['action']) AND $_GET['action'] == "add"){
 	
+	$title = filter_var($_POST['title'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+	$price = filter_var($_POST['price'], FILTER_SANITIZE_NUMBER_INT);
+	$descr =  filter_var($_POST['descr'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+	$uID   = filter_var($_SESSION['id'], FILTER_SANITIZE_NUMBER_INT);
 	
+	$stmt = $link->prepare("INSERT INTO `offer` (`id`, `title`, `descr`, `userid`, `price`) VALUES (NULL, ?, ?, ?, ?)");
+	$stmt->bind_param("ssii", $title, $descr, $uID, $price);
+	//$stmt->execute();
+	
+	if($stmt->execute()){
+			
+			echo "<div class='alert alert-success' role='alert'>You have added ".$title." to our market!</div>";
+			
+	} else {
+		
+			echo '<div class="alert alert-danger" role="alert">Execute failed: (' . $stmt->errno . ') ' . $stmt->error.'</div>';
+			
+			//echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+	//echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;	
+	}
 	
 }
-
-//Param should now me numeric
-/* 
-		$stmt = $link->prepare("SELECT id, title, descr, userid, price FROM `offer` WHERE id=?");
-
-		$stmt->bind_param("i", $_GET['id']);
-
-		$sql = "SELECT id, title, descr, userid, price FROM `offer`;";
-
-		$result = mysqli_query($link, $sql);
-
-		$stmt->execute();
-
-		$result = $stmt->get_result();
-
-		$row = $result->fetch_assoc();
- */
-//var_dump($row);
-
 
 ?>
 
@@ -63,7 +63,7 @@ require_once('./assets/layout/navbar_inside.php')
 
 <main role="main" class="container">
   <div class="jumbotron">
-    <h1><?php// echo $row['title'];?></h1>
+    <h1>Add Offer</h1>
 
   <form method="POST" action="./addOffer.php?action=add">
   <table class="table table-borderless">
@@ -72,15 +72,15 @@ require_once('./assets/layout/navbar_inside.php')
  
 	<tr>
 		<td>Titel:</td>
-		<td><input type="text" class="form-control" id="title" placeholder="Titel"></td>
+		<td><input type="text" class="form-control" name="title" placeholder="Titel"></td>
 	</tr>
 		<tr>
 		<td>Price:</td>
-		<td><input type="text" class="form-control" id="price" placeholder="1337 €"></td>
+		<td><input type="text" class="form-control" name="price" placeholder="1337 €"></td>
 	</tr>
 		<tr>
 		<td>Description:</td>
-		<td><textarea class="form-control" id="descr" rows="3"></textarea></td>
+		<td><textarea class="form-control" name="descr" rows="3"></textarea></td>
 	</tr>
 		<tr>
 		<td><button type="submit" class="btn btn-primary mb-2">Add</button></td>
