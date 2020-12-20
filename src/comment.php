@@ -17,15 +17,19 @@ if(isset($_GET['action']) && $_GET['action'] == "add"){
     $time = time();
 
 
-    $insert = "INSERT INTO `comment` (`id`, `text`, `userid`, `offerid`, `timestamp`) VALUES (NULL, '$comment', '$userid', '$offerid', '$time')";
-     
-    if ($link->query($insert) === TRUE) {
-        header("location: market.php");
-      } else {
-        echo "Error: " . $insert . "<br>" . $link->error;
-      }
-      
-   
+
+	$stmt = $link->prepare("INSERT INTO `comment` (`id`, `text`, `userid`, `offerid`, `timestamp`) VALUES (NULL, ?, ?, ?, ?)");
+	
+	$stmt->bind_param('siii', $comment, $userid, $offerid, $time);
+	
+	if($stmt->execute()){
+			
+		header("location: market.php");
+	} else {
+		
+		echo "There was an Error!";
+		die();
+	}
 }
 
 ?>

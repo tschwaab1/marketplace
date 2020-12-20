@@ -80,8 +80,8 @@ if (mysqli_num_rows($result) > 0) {
 	
 	<tr>
       <th scope='row'>".$row['id']."</th>
-      <td>".$row['title']."</td>
-      <td title='Click on View to see the full Description'>".substr($row['descr'],0,90)." ...</td>
+      <td>".htmlentities($row['title'])."</td>
+      <td title='Click on View to see the full Description'>".htmlentities(substr($row['descr'],0,90))." ...</td>
       <td>".$row['price']."</td>
 	  <td><a href='./showOff.php?id=".$row['id']."'>View</a></td>
     </tr>
@@ -95,7 +95,7 @@ if (mysqli_num_rows($result) > 0) {
   
   }
 } else {
-  echo "";
+  echo "No offer yet here! Create one :D ";
 }
 
 
