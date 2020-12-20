@@ -8,9 +8,9 @@ if(isset($_SESSION["isin"]) && $_SESSION["isin"] === true){
 
 require_once "./includes/config.php";
  
-if (isset($_POST['email'])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   // receive all input values from the form
-  $firstname =        trim($_POST['fname']);
+  $firstname =        trim($_POST['fname']); 
   $lastname =         trim($_POST['lname']);
   $username =         trim($_POST['username']);
   $password =         trim($_POST['password']);
@@ -20,45 +20,83 @@ if (isset($_POST['email'])) {
   $regDa= time();
   $errors = array(); 
 
-
-  if (empty($firstname)) { array_push($errors, "Firstname is required"); }
-  if (empty($lastname)) { array_push($errors, "Lastname is required"); }
-  if (empty($username)) { array_push($errors, "Username is required"); }
-  if (strlen($username) < 4 ) { array_push($errors, "Username should have at least four characters"); }
-  if (empty($email)) { array_push($errors, "Email is required"); }
-  if (empty($password)) { array_push($errors, "Password is required"); }
-  if (strlen($password) < 4 ) { array_push($errors, "Password should have at least four characters"); }
-  if ($password != $password_confirm) {
-	array_push($errors, "The two passwords do not match");
-  }
+//    validating inputs:
+    if (empty($firstname)) {    alert("First Name required!");
+                           die(); } 
+    if (!ctype_alnum($firstname)) { alert("Please insert only alphanumerical characters!");  die(); } 
+    
+    if (empty($lastname)) { alert("Last Name required!");  die();}
+    if (!ctype_alnum($lastname)) { alert("Please insert only alphanumerical characters!");  die(); } 
+    
+    if (empty($username)) { alert("Username required!");  die(); }
+    if (!ctype_alnum($username)) { alert("Please insert only alphanumerical characters!");  die(); } 
+    if (strlen($username) < 4 ) { alert("Username should have at least 4 characters");  die(); }
+    
+    if (empty($password)) { alert("Password required!");  die(); }
+    if (!ctype_alnum($password)) { alert("Please insert only alphanumerical characters!");  die(); } 
+    if (strlen($password) < 4 ) { alert("Password should have at least 4 alphanumerical characters!");  die(); }
+    if ($password != $password_confirm) { alert("Passwords do not match!");  die(); }
+    if (!ctype_alnum($password_confirm)) { alert("Please insert only alphanumerical characters!");  die(); } 
+    
+    
+    if (empty($email)) { alert("Email required!");  die(); }
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL) === true) {
+       alert("Please insert a valid email address!");  die();
+} 
+    
 
   // first check the database to make sure 
   // a user does not already exist with the same username and/or email
-  $user_check_query = "SELECT * FROM user WHERE username='$username' LIMIT 1";
-  $result = mysqli_query($link, $user_check_query);
-  $user = mysqli_fetch_assoc($result);
-  
+    
+        $stmt = $link->prepare("SELECT * FROM user WHERE username=? LIMIT 1");
+
+		$stmt->bind_param("s", $username);
+
+		$stmt->execute();
+
+		$result = $stmt->get_result();
+
+		$user = $result->fetch_assoc();
+    
+    
   if ($user) { // if user exists
     if ($user['username'] === $username) {
       array_push($errors, "Username already exists");
     }
   }
+    
+ 
 
     if (count($errors) == 0) {
-    $query = "INSERT INTO user (id, firstName, lastName, username, password, email, ip, regDate)
-    VALUES (NULL, '$firstname', '$lastname', '$username', '".md5($password)."', '$email' , '$ip', '$regDa')";
+    $safePassword= md5($password);
     
+    $query = $link->prepare("INSERT INTO user (id, firstName, lastName, username, password, email, ip, regDate) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?)");
+        
+    $query->bind_param("ssssssi", $firstname, $lastname, $username, $safePassword, $email , $ip, $regDa);
+    
+    $query->execute();
+        
 
-    if ($link->query($query) === TRUE) {
-      echo "New record created successfully";
-      header("location: index.php");
+
+    if ($query) {
+     // alert("New record created successfully");
+      //header("");
+        
+        //echo "Go <a href='./index.php'> back</a>";
+        
+        echo "<div class='alert alert-success'><strong>Account created!</strong> </div>";
+        
+        /*
+        <div class='alert alert-success'><strong>Account created!</strong> </div>
+        
+        */
     } else {
-      echo "Error: " . $query . "<br>" . $link->error;
+      echo "Error: test" . $query->error;
     }
     
     $link->close();
   } else {
-    echo print_r($errors);
+    //echo print_r($errors);
   }
     
 }
@@ -164,18 +202,18 @@ require_once('./assets/layout/navbar.php')
 </main>
 
 
-
-
 <?php
-
 //include footer
 require_once('./assets/layout/footer.php');
 
 //Add Div for Login Popup on every page
 require_once('./assets/layout/login_popup.php');
+
+function alert($msg) {
+    echo "<script type='text/javascript'>alert('$msg');</script>";
+}
 ?>
-
-
+      
 <script>
 // Get the modal
 var modal = document.getElementById('id01');
