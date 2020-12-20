@@ -15,7 +15,6 @@
 		<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="./addOffer.php">Add</a>
           <a class="dropdown-item" href="./market.php">View All</a>
-          <a class="dropdown-item" href="#">else here</a>
         </div>
       </li>
       <li class="nav-item <?php echo (basename($_SERVER['SCRIPT_NAME']) == 'settings.php') ? 'active' : '';?>">
