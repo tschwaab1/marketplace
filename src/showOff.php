@@ -29,7 +29,6 @@ require_once('./includes/config.php');
 
 //var_dump($row);
 
-
 ?>
 
 <!doctype html>
@@ -101,12 +100,38 @@ require_once('./assets/layout/navbar_inside.php')
 <a class="btn btn-lg btn-primary" href="#" role="button">Contact Seller &raquo;</a>
 
 </div>
+
+<div class="jumbotron">
+<h4>Comments</h4>
+
+<table class="table table-borderless">
+  <thead>
+  </thead>
+  </table>
+
+  <?php
+
+	$offerid = $_GET['id'];		
+
+	$query_fetch = mysqli_query($link,"SELECT * FROM comment WHERE offerid = $offerid");
+	
+ 	while($show = mysqli_fetch_array($query_fetch)){
+
+		
+
+		echo "".$show['text']." <br>";
+		
+		 
+ 	} // while loop brace
+?>
+</div>
+
 <div class="jumbotron">  
   <br><br>
 
     <h4>Comments:</h4>
 	
-	<form method="POST" action="./comment.php?action=add">
+	<form method="POST" action = "comment.php?action=add&offerid=<?php echo $row['id'];?>">
 	 <table class="table table-borderless">
 
 		<tbody>
@@ -117,7 +142,7 @@ require_once('./assets/layout/navbar_inside.php')
 	</table>
 	
 	 <br><br>
-		<input type="submit" value="Submit">
+	 	<input type="submit" value="Submit">
 		</form>
   </div>
   
