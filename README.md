@@ -3,15 +3,8 @@
 
 This was a Project for an university course called "System Security". The aim was to create a small Web-Application like a blog or marketplace to demonstrate the need of input validation in order to protect Web-Applications, or in general Software from all kinds of vulnerabilities like SQL-Injection, Cross-Site-Scripting (XSS), ...
 Therefore we made two versions of our Project, one with Security measures and one without.
-## Preview
 
-![](https://github.com/tschwaab1/marketplace/blob/main/preview_pics/marketplace.PNG)
-
-![](https://github.com/tschwaab1/marketplace/blob/main/preview_pics/marketplace2.PNG)
-
-![](https://github.com/tschwaab1/marketplace/blob/main/preview_pics/marketplace3.PNG)
-
-![](https://github.com/tschwaab1/marketplace/blob/main/preview_pics/marketplace4.PNG)
+Collaborators: https://github.com/Laurammf  https://github.com/cmichelutti99
 
 ## Basic structure
 
@@ -72,6 +65,17 @@ Account#2
 >Pass: user
 
 Of course you're free to create your own Account and Offers! :)
+
+## Preview
+## Preview
+
+![](https://github.com/tschwaab1/marketplace/blob/main/preview_pics/marketplace.PNG)
+
+![](https://github.com/tschwaab1/marketplace/blob/main/preview_pics/marketplace2.PNG)
+
+![](https://github.com/tschwaab1/marketplace/blob/main/preview_pics/marketplace3.PNG)
+
+![](https://github.com/tschwaab1/marketplace/blob/main/preview_pics/marketplace4.PNG)
 
 ## Contact
 
