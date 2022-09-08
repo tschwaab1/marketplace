@@ -5,9 +5,9 @@ This was a Project for an university course called "System Security". The aim wa
 Therefore we made two versions of our Project, one with Security measures and one without.
 
 Collaborators: 
-..*[@Laurammf](https://github.com/Laurammf)
-..*[@cmichelutti99](https://github.com/cmichelutti99)
-..*[@tschwaab1](https://github.com/tschwaab1)
+[@Laurammf](https://github.com/Laurammf)
+[@cmichelutti99](https://github.com/cmichelutti99)
+[@tschwaab1](https://github.com/tschwaab1)
 
 ## Basic structure
 
