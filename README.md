@@ -9,6 +9,8 @@ Collaborators:
 [@cmichelutti99](https://github.com/cmichelutti99)
 [@tschwaab1](https://github.com/tschwaab1)
 
+Note: You can see some preview images below!
+
 ## Basic structure
 
 We are using a modular system. This means Pages like about.php or index.php are separated into multiple parts. For example: The menu at the top is inside extra file (src/assets/layout/navbar.php) and the Login-Popup HTML code is separated in src/assets/layout/login_popup.php. These files are included on every Page where they are needed, this makes changes to the menu, ... easier and you dont have to edit 20 files for 1 change.
