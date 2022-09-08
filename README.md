@@ -4,7 +4,10 @@
 This was a Project for an university course called "System Security". The aim was to create a small Web-Application like a blog or marketplace to demonstrate the need of input validation in order to protect Web-Applications, or in general Software from all kinds of vulnerabilities like SQL-Injection, Cross-Site-Scripting (XSS), ...
 Therefore we made two versions of our Project, one with Security measures and one without.
 
-Collaborators: https://github.com/Laurammf  https://github.com/cmichelutti99
+Collaborators: 
+..*[@Laurammf](https://github.com/Laurammf)
+..*[@cmichelutti99](https://github.com/cmichelutti99)
+..*[@tschwaab1](https://github.com/tschwaab1)
 
 ## Basic structure
 
