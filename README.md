@@ -1,4 +1,10 @@
 # Marketplace
+## Introduction
+
+This was a Project for an university course called "System Security". The aim was to create a small Web-Application like a blog or marketplace to demonstrate the need of input validation in order to protect Web-Applications, or in general Software from all kinds of vulnerabilities like SQL-Injection, Cross-Site-Scripting (XSS), ...
+Therefore we made two versions of our Project, one with Security measures and one without.
+## Preview
+
 ## Basic structure
 
 We are using a modular system. This means Pages like about.php or index.php are separated into multiple parts. For example: The menu at the top is inside extra file (src/assets/layout/navbar.php) and the Login-Popup HTML code is separated in src/assets/layout/login_popup.php. These files are included on every Page where they are needed, this makes changes to the menu, ... easier and you dont have to edit 20 files for 1 change.
