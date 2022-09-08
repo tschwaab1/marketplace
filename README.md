@@ -5,10 +5,10 @@ This was a Project for an university course called "System Security". The aim wa
 Therefore we made two versions of our Project, one with Security measures and one without.
 ## Preview
 
-![alt text](https://github.com/tschwaab1/marketplace/blob/main/preview_pics/marketplace.PNG)
-![alt text](https://github.com/tschwaab1/marketplace/blob/main/preview_pics/marketplace2.PNG)
-![alt text](https://github.com/tschwaab1/marketplace/blob/main/preview_pics/marketplace3.PNG)
-![alt text](https://github.com/tschwaab1/marketplace/blob/main/preview_pics/marketplace4.PNG)
+![alt text](https://github.com/tschwaab1/marketplace/blob/main/preview_pics/marketplace.PNG | width=600)
+![alt text](https://github.com/tschwaab1/marketplace/blob/main/preview_pics/marketplace2.PNG | width=600)
+![alt text](https://github.com/tschwaab1/marketplace/blob/main/preview_pics/marketplace3.PNG | width=600)
+![alt text](https://github.com/tschwaab1/marketplace/blob/main/preview_pics/marketplace4.PNG | width=600)
 
 ## Basic structure
 
