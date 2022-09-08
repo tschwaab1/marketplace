@@ -59,15 +59,6 @@ Account#2
 
 Of course you're free to create your own Account and Offers! :)
 
-## Visit our Online Version:
-
-In case you only want to test the safe and unsafe version.
-
-Go to http://marketplace.schwaab.bayern/src for the safe and http://marketplace.schwaab.bayern/src_unsafe for the unsafe Version.
-
-Note: For some strange reason people reported, that the online Version sometimes only work in private mode...
-Note: We set up our online Version src & src_unsafe with two different databases ;-)
-
 ## Contact
 
-If there are any doubts or questions please contact us at: thomas@schwaab.bayern
+If there are any doubts or questions please contact us at: info@tschwaab.net
